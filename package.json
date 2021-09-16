@@ -1,5 +1,5 @@
 {
-    "name": "Article Evaluation",
+    "name": "article-evaluation",
     "jest": {
         "moduleNameMapper": {
             "^.+\\.(css|less|scss)$": "babel-jest"
