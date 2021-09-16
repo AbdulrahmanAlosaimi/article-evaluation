@@ -7,7 +7,9 @@ async function getApiKey() {
     const response = await fetch('/apiKey');
     try {
         const data = await response.json();
-        console.log(`2. API Key fetched! ${data}\nNow, it should prepare the API Call!`);
+        console.log(`2. API Key fetched!`);
+        console.log(data);
+        console.log('Now, it should prepare the API Call!');
         return data;
     } catch (error) {
         console.log(error, 'HERE2');
