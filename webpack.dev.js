@@ -12,7 +12,7 @@ module.exports = {
         fs: "empty"
     },
     devServer: {
-        port: 8082,
+        port: 8082 || process.env.PORT,
         setup(app) {
             let articleData = {};
 
