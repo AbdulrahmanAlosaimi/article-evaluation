@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Article Evaluation</title>
+</head>
+
+<body>
+
+    <header>
+        <div class="">
+            Article Evaluation using Natural Language Processing
+        </div>
+    </header>
+
+    <main>
+        <section>
+            <form class="">
+                <input id="name" type="text" name="input" value="" placeholder="Enter Article URL">
+                <button id="btn" type="button" value="submit">Submit</button>
+            </form>
+        </section>
+
+        <section id="results-section" class="hidden">
+            <strong>Form Results:</strong>
+            <div id="results">
+                <div id="agreement"></div>
+                <div id="confidence"></div>
+                <div id="irony"></div>
+                <div id="subjectivity"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Udacity Front-End Nanodegree Project #4</p>
+    </footer>
+
+    <script>
+        // Check that service workers are supported
+        if ('serviceWorker' in navigator) {
+            // Use the window load event to keep the page load performant
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js');
+            });
+        }
+    </script>
+</body>
+
+</html>
