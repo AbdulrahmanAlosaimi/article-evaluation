@@ -10,6 +10,7 @@
     "scripts": {
         "start": "webpack --config webpack.prod.js && node src/server/index.js",
         "build-prod": "webpack --config webpack.prod.js",
+        "build": "webpack --config webpack.prod.js",
         "build-dev": "webpack-dev-server  --config webpack.dev.js --open",
         "test": "jest"
     },
