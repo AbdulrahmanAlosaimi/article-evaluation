@@ -12,6 +12,7 @@ const confidence = document.getElementById('confidence');
 const irony = document.getElementById('irony');
 const subjectivity = document.getElementById('subjectivity');
 const resultSection = document.getElementById('results-section');
+const waitingText = document.getElementById('waiting');
 
 let articleData;
 
@@ -20,8 +21,9 @@ document.addEventListener('DOMContentLoaded', function() {
     btn.addEventListener('click', async function() {
         let urlElement = document.getElementById('name');
         if (isURL(urlElement.value)) {
-            clearUI();
             try {
+                waitingText.classList.remove('hidden');
+                resultSection.classList.add('hidden');
                 handleSubmit(urlElement.value);
             } catch (error) {
                 console.log(`ERROR ${error}`)
@@ -50,6 +52,8 @@ async function fetchArticleData() {
 
 async function updateUI() {
     fetchArticleData().then((articleData) => {
+        waitingText.classList.add('hidden');
+        resultSection.classList.remove('hidden');
         console.log(`Article Data, inside updateUI: ${articleData}`)
         agreement.innerHTML = agreement.innerHTML + titleCase(articleData.agreement);
         console.log(articleData.agreement);
@@ -73,3 +77,4 @@ function clearUI() {
 
 
 export { updateUI }
+export { clearUI }

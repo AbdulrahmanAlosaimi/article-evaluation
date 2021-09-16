@@ -1,4 +1,6 @@
 import { updateUI } from '../index.js'
+import { clearUI } from '../index.js'
+
 const apiURL = 'https://api.meaningcloud.com/sentiment-2.1';
 let apiKey, articleData;
 
@@ -32,6 +34,7 @@ async function handleSubmit(url) {
                 `)
                 return await postArticleData('/add', articleData);
             }).then(() => {
+                clearUI();
                 updateUI();
             })
     } catch (error) {
