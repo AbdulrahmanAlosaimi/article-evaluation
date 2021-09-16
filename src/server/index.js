@@ -34,7 +34,7 @@ app.get('/', function(req, res) {
 })
 
 // designates what port the app will listen to for incoming requests
-app.listen(8081 || process.env.PORT, function() {
+app.listen(process.env.PORT || 8081, function() {
     console.log(`Article Evaluation app listening on port ${this.address().port}!`)
 })
 
