@@ -35,7 +35,7 @@ app.get('/', function(req, res) {
 
 // designates what port the app will listen to for incoming requests
 app.listen(8081 || process.env.PORT, function() {
-    console.log('Example app listening on port 8081!')
+    console.log(`Article Evaluation app listening on port ${this.address().port}!`)
 })
 
 app.get('/apiKey', function(req, res) {
