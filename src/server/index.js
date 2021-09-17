@@ -44,7 +44,6 @@ app.get('/apiKey', function(req, res) {
 
 app.post('/add', function(req, res) {
     articleData = req.body;
-    console.log(`Returning article data. ${articleData.confidence}`)
     res.end(JSON.stringify({ status: 200, message: "success", articleData: articleData }))
 })
 

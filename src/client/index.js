@@ -22,11 +22,11 @@ document.addEventListener('DOMContentLoaded', function() {
         let urlElement = document.getElementById('name');
         if (isURL(urlElement.value)) {
             try {
-                waitingText.classList.remove('hidden');
                 resultSection.classList.add('hidden');
+                waitingText.classList.remove('hidden');
                 handleSubmit(urlElement.value);
             } catch (error) {
-                console.log(`ERROR ${error}`)
+                console.log(`ERROR ${error}\n(in click eventListener in index.js -client)`)
             }
         } else {
             urlElement.value = '';
@@ -39,12 +39,10 @@ async function fetchArticleData() {
     const response = await fetch('/data')
     try {
         const data = await response.json();
-        console.log(`Now, it should GET the data I just POSTed to my server, so I can update the UI!`);
-        console.log(data);
         articleData = data;
         return data;
     } catch (error) {
-        console.log(error, 'ERROR 15');
+        console.log(error, ' Error in fetchArticleData function in index.js -client');
     }
 
 
@@ -54,9 +52,7 @@ async function updateUI() {
     fetchArticleData().then((articleData) => {
         waitingText.classList.add('hidden');
         resultSection.classList.remove('hidden');
-        console.log(`Article Data, inside updateUI: ${articleData}`)
         agreement.innerHTML = agreement.innerHTML + titleCase(articleData.agreement);
-        console.log(articleData.agreement);
         confidence.innerHTML = confidence.innerHTML + articleData.confidence + '%';
         irony.innerHTML = irony.innerHTML + titleCase(articleData.irony);
         subjectivity.innerHTML = subjectivity.innerHTML + titleCase(articleData.subjectivity);
